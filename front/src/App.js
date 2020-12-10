@@ -1,8 +1,13 @@
+import Header from './components/Header';
+import Content from './components/Content';
+import Footer from './components/Footer';
 
 function App() {
   return (
-      <div className="logo-title">
-          <h1>Mind<span className="change-color">y</span>.</h1>
+      <div className="App">
+          <Header />
+          <Content />
+          <Footer />
       </div>
   );
 }
