@@ -1,6 +1,6 @@
 import Logo from './Logo';
 import Button from './Button';
-import Avatar from './User';
+import User from './User';
 import Profile from './Profile';
 import Logout from './Logout';
 
