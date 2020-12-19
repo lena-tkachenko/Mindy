@@ -2,7 +2,7 @@
 
 # dependencies
 /node_modules
-/src/containers/temp.txt
+
 /.pnp
 .pnp.js
 

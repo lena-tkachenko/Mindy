@@ -1,9 +1,17 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const fs = require('fs');
+require('dotenv').config();
+const port = process.env.PORT;
 
-app.get('/', (req, res) => {
-    res.send('Hello, NodeJS!')
+app.get('/', function (req, res, next) {
+    fs.readFile('/file-does-not-exist', function (err, data) {
+        if (err) {
+            next(err);
+        } else {
+            res.send(data)
+        }
+    })
 });
 
 app.listen(port, () => {
