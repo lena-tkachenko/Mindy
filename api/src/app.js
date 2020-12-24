@@ -1,18 +1,22 @@
 const express = require('express');
 const app = express();
 const fs = require('fs');
+const path = require('path');
 require('dotenv').config();
 const port = process.env.PORT;
+const blogRoutes = require('../routes/blogRoutes');
 
-app.get('/', function (req, res, next) {
-    fs.readFile('/file-does-not-exist', function (err, data) {
+app.get('/', (req, res) => {
+    fs.readFile(path.join(__dirname,'index.html'), function (err, data) {
         if (err) {
-            next(err);
+            throw(err);
         } else {
-            res.send(data)
+            res.end(data)
         }
     })
 });
+
+app.use(blogRoutes);
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
